@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{.Title}}</title>
+
+    <!-- HTMX -->
+    <script
+      src="https://unpkg.com/htmx.org@1.9.6"
+      integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- MD Editor -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
+
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+
+  <!-- 
+    bg-gray-100
+    bg-yellow-700
+    bg-orange-600
+    bg-gray-800
+  -->
+
+  <body
+    class="flex flex-col items-center justify-center min-h-screen bg-gray-800 p-4"
+  >
+    {{.Content}}
+
+    <footer class="absolute bottom-0 w-screen bg-gray-800 text-gray-100 py-4">
+      <div class="container mx-auto text-center">
+        &copy; {{.Year}} Haier LLC |
+        <a target="_blank" class="underline" href="https://derekgarnett.com">Tech Solutions</a>
+      </div>
+    </footer>
+  </body>
+</html>
