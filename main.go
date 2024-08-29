@@ -6,7 +6,10 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 	"time"
+
+	"github.com/joho/godotenv"
 )
 
 type PageData struct {
@@ -16,6 +19,12 @@ type PageData struct {
 }
 
 func main() {
+	// Load the .env file
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
 	http.HandleFunc("/homes", func(w http.ResponseWriter, r *http.Request) {
@@ -26,7 +35,7 @@ func main() {
 		renderPage(w, "views/media.html", PageData{Title: "Haier the Creator"})
 	})
 
-	log.Fatal(http.ListenAndServe(":6969", nil))
+	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", os.Getenv("PORT")), nil))
 }
 
 func renderPage(w http.ResponseWriter, tmpl string, data PageData) {
