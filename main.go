@@ -26,6 +26,8 @@ func main() {
 	}
 
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	http.Handle("/homes/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+	http.Handle("/media/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
 	http.HandleFunc("/homes", func(w http.ResponseWriter, r *http.Request) {
 		renderPage(w, "views/homes.html", PageData{Title: "Haier the Realtor"})
