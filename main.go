@@ -16,6 +16,8 @@ type PageData struct {
 	Content template.HTML
 	Title   string
 	Year    string
+	IsMedia bool
+	IsHomes bool
 }
 
 func main() {
@@ -26,15 +28,13 @@ func main() {
 	}
 
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
-	http.Handle("/homes/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
-	http.Handle("/media/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
 	http.HandleFunc("/homes", func(w http.ResponseWriter, r *http.Request) {
-		renderPage(w, "views/homes.html", PageData{Title: "Haier the Realtor"})
+		renderPage(w, "views/homes.html", PageData{IsHomes: true, Title: "Eric Hintermaier | Realtor"})
 	})
 
 	http.HandleFunc("/media", func(w http.ResponseWriter, r *http.Request) {
-		renderPage(w, "views/media.html", PageData{Title: "Haier the Creator"})
+		renderPage(w, "views/media.html", PageData{IsMedia: true, Title: "HAIER | Creator"})
 	})
 
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", os.Getenv("PORT")), nil))
@@ -42,6 +42,8 @@ func main() {
 
 func renderPage(w http.ResponseWriter, tmpl string, data PageData) {
 	renderTemplate(w, "views/layout.html", PageData{
+		IsHomes: data.IsHomes,
+		IsMedia: data.IsMedia,
 		Title:   data.Title,
 		Content: renderTemplateToString(tmpl, data),
 		Year:    fmt.Sprint(time.Now().Year()),

@@ -5,15 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{.Title}}</title>
 
+    {{ if .IsHomes }}
+      <link rel="icon" type="image/png" href="/static/images/homes-favicon/favicon-48x48.png" sizes="48x48" />
+      <link rel="icon" type="image/svg+xml" href="/static/images/homes-favicon/favicon.svg" />
+      <link rel="shortcut icon" href="/static/images/homes-favicon/favicon.ico" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/static/images/homes-favicon/apple-touch-icon.png" />
+      <link rel="manifest" href="/static/images/homes-favicon/site.webmanifest" />
+    {{ else if .IsMedia }}
+      <link rel="icon" type="image/png" href="/static/images/media-favicon/favicon-48x48.png" sizes="48x48" />
+      <link rel="icon" type="image/svg+xml" href="/static/images/media-favicon/favicon.svg" />
+      <link rel="shortcut icon" href="/static/images/media-favicon/favicon.ico" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/static/images/media-favicon/apple-touch-icon.png" />
+      <link rel="manifest" href="/static/images/media-favicon/site.webmanifest" />
+    {{ end }}
+
     <!-- HTMX -->
     <script
       src="https://unpkg.com/htmx.org@1.9.6"
       integrity="sha384-FhXw7b6AlE/jyjlZH5iHa/tTe9EpJ1Y55RjcgPbjeWMskSxZt1v9qkxLJWNJaGni"
       crossorigin="anonymous"
     ></script>
-
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- MD Editor -->
     <link
@@ -22,26 +33,21 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.js"></script>
 
-    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="/static/styles/font.css" />
+    <link rel="stylesheet" href="/static/styles/layout.css" />
+    <link rel="stylesheet" href="/static/styles/homes.css" />
+    <link rel="stylesheet" href="/static/styles/media.css" />
   </head>
 
-  <!-- 
-    bg-gray-100
-    bg-yellow-700
-    bg-orange-600
-    bg-gray-800
-  -->
+  <body>
+    <main class="main">
+      {{.Content}}
+    </main>
 
-  <body
-    class="flex flex-col items-center justify-center min-h-screen bg-gray-800 p-4"
-  >
-    {{.Content}}
-
-    <footer class="absolute bottom-0 w-screen bg-gray-800 text-gray-100 py-4">
-      <div class="container mx-auto text-center">
-        &copy; {{.Year}} Haier LLC |
-        <a target="_blank" class="underline" href="https://derekgarnett.com">Tech Solutions</a>
-      </div>
+    <footer class="footer">
+      <span>&copy; {{.Year}} Haier LLC</span>
+      <span>|</span>
+      <a target="_blank" class="tech" href="https://derekgarnett.com">Tech Solutions</a>
     </footer>
   </body>
 </html>
