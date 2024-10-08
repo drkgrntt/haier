@@ -53,6 +53,7 @@
 		text-decoration: none;
 		color: var(--light-gray);
 		text-transform: uppercase;
+		border-radius: .2rem;
 
 		&:hover {
 			transform: scale(1.05);
