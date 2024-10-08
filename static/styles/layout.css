@@ -42,7 +42,8 @@ body {
   height: 5rem;
   font-size: 1.1rem;
   font-weight: 500;
-
+}
+.media .footer {
   @media (min-height: 800px) {
 	position: fixed;
 	bottom: 0;

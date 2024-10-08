@@ -40,4 +40,72 @@
     <a class="bar-link" target="_blank" href="https://www.realtor.com/realestateagents/627d686b646f46d573a969dd">Realtor</a>
     <a class="bar-link" target="_blank" href="/media">HAIER</a>
   </div>
+
+  <form
+    id="contactForm"
+    class="form"
+    hx-post="/contact"
+    hx-trigger="submit"
+    hx-target="#contactForm"
+    hx-swap="outerHTML"
+  >
+    <h3>Or reach out right here!</h3>
+
+    <div class="field">
+      <input
+        type="text"
+        id="name"
+        name="name"
+        class="input"
+        required
+      />
+      <label for="name" class="label">Name*</label>
+    </div>
+
+    <div class="field">
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="input"
+      />
+      <label for="email" class="label">
+      Email
+      </label>
+    </div>
+
+    <div class="field">
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        class="input"
+      />
+      <label for="phone" class="label">
+        Phone
+      </label>
+    </div>
+
+    <div class="field">
+      <textarea
+        id="message"
+        name="message"
+        class="textarea"
+      ></textarea>
+      <label for="message" class="label">
+        Message
+      </label>
+    </div>
+
+    <input type="hidden" name="honeypot" />
+
+    <div class="submit-container">
+      <button
+        type="submit"
+        class="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
 </div>
