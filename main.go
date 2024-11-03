@@ -41,11 +41,11 @@ func main() {
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
 	http.HandleFunc("/homes", func(w http.ResponseWriter, r *http.Request) {
-		renderPage(w, "views/homes.html", PageData{Page: "homes", IsHomes: true, Title: "Eric Hintermaier | Realtor"})
+		renderPage(w, "views/homes.html", PageData{Page: "homes", IsHomes: true, Title: "Haier Homes | Kansas City Real Estate"})
 	})
 
 	http.HandleFunc("/media", func(w http.ResponseWriter, r *http.Request) {
-		renderPage(w, "views/media.html", PageData{Page: "media", IsMedia: true, Title: "HAIER | Creator"})
+		renderPage(w, "views/media.html", PageData{Page: "media", IsMedia: true, Title: "Haier the Creator | Haier Media"})
 	})
 
 	http.HandleFunc("/contact", func(w http.ResponseWriter, r *http.Request) {

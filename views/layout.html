@@ -45,7 +45,13 @@
     </main>
 
     <footer class="footer">
-      <span>&copy; {{.Year}} Haier LLC</span>
+      <span>&copy; {{.Year}}
+        Haier
+        {{ if .IsHomes }}
+          Homes
+        {{ end }}
+        LLC
+      </span>
       <span>|</span>
       <a target="_blank" class="tech" href="https://derekgarnett.com">Tech Solutions</a>
     </footer>
