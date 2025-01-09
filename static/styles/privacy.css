@@ -1,0 +1,18 @@
+#privacy-page {
+  max-width: 80rem;
+  width: 95vw;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+
+  header, section {
+	padding-bottom: 2rem;
+  }
+
+  p {
+	padding-top: .5rem;
+  }
+
+  a {
+	color: var(--light-gray);
+  }
+}

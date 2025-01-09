@@ -48,6 +48,14 @@ func main() {
 		renderPage(w, "views/media.html", PageData{Page: "media", IsMedia: true, Title: "Haier the Creator | Haier Media"})
 	})
 
+	http.HandleFunc("/privacy", func(w http.ResponseWriter, r *http.Request) {
+		renderPage(w, "views/privacy.html", PageData{Page: "homes", IsHomes: true, Title: "Privacy Policy | Haier Homes"})
+	})
+
+	http.HandleFunc("/terms", func(w http.ResponseWriter, r *http.Request) {
+		renderPage(w, "views/terms.html", PageData{Page: "homes", IsHomes: true, Title: "Terms & Conditions | Haier Homes"})
+	})
+
 	http.HandleFunc("/contact", func(w http.ResponseWriter, r *http.Request) {
 		// Parse the form
 		err := r.ParseForm()

@@ -37,6 +37,8 @@
     <link rel="stylesheet" href="/static/styles/layout.css" />
     <link rel="stylesheet" href="/static/styles/homes.css" />
     <link rel="stylesheet" href="/static/styles/media.css" />
+    <link rel="stylesheet" href="/static/styles/privacy.css" />
+    <link rel="stylesheet" href="/static/styles/terms.css" />
   </head>
 
   <body class="{{.Page}}">
@@ -55,5 +57,12 @@
       <span>|</span>
       <a target="_blank" class="tech" href="https://derekgarnett.com">Tech Solutions</a>
     </footer>
+      {{ if .IsHomes }}
+        <footer class="footer">
+          <a class="tech" href="/privacy">Privacy Policy</a>
+          <span>|</span>
+          <a class="tech" href="/terms">Terms & Conditions</a>
+        </footer>
+      {{ end }}
   </body>
 </html>
