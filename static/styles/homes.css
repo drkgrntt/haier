@@ -130,6 +130,10 @@
 		}
 	}
 
+	.link {
+		color: var(--light-gray);
+	}
+
 	.textarea {
 		font-family: inherit;
 		width: 100%;
